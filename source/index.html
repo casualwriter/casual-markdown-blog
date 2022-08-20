@@ -4,15 +4,16 @@
 <style>  
 body { font-family:Verdana,sans-serif; font-size:14px; line-height:1.5; margin:0; }
 a 	 { background:transparent; text-decoration:none; color:navy } a:active, a:hover { outline-width:0; background:#ffd700 }
-#header { background:#0057b7; color:white; width:100%; height:50px; }
-#title 	{ float:left; font-size:18px; font-weight:700; padding:8px }
+#header { background:#0057b7; color:white; width:100%; height:60px; }
+#title  { float:left;font-size:18px; font-weight:700; padding:8px  }
+#subtitle { font-size:75%; padding:8px; color:#bbb }
 #menu button, #menu a  { font-family:Verdana,Arial; border:none; padding:4px 8px; color:inherit; background:inherit; }
 #menu button:hover, #menu a:hover { color:#000; background:#ffd700 }
 #menu button:disabled {cursor:not-allowed; opacity:0.5}: disabled *{pointer-events:none}
-#left-panel 	{ position:absolute; left:0; bottom:0; width:380px; top:48px; border:1px solid grey; overflow:auto; padding:8px }
-#right-panel 	{ position:absolute; right:0; bottom:0; left:400px; top:48px; border:1px solid grey; overflow:auto; padding:8px 16px }
+#left-panel 	{ position:absolute; left:0; bottom:0; width:340px; top:58px; border:1px solid grey; overflow:auto; padding:8px }
+#right-panel 	{ position:absolute; right:0; bottom:0; left:360px; top:58px; border:1px solid grey; overflow:auto; padding:8px 16px }
 #modal  { display:none;z-index:3;padding-top:200px;position:fixed;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.5)}
-#dialog { margin:auto; background:#eee; position:relative; padding:4px; width:500px; padding:20px; font-size:20px }
+#dialog { margin:auto; background:#eee; position:relative; padding:4px; width:400px; padding:20px; font-size:20px }
 
 /***** css copy from casual-markdown.css ******/
 .markdown code { background:#f0f0f0; color:navy; border-radius:2px; padding:2px; } 
@@ -26,7 +27,7 @@ a 	 { background:transparent; text-decoration:none; color:navy } a:active, a:hov
 .markdown rem { color:#198964 }
 .toc ul  { padding: 0 12px; }
 .toc h3  { color:#0057b7; border-bottom:1px dotted  grey }
-.toc .H1 { list-style-type:none; font-weight:600; margin:4px; background:#eee }
+.toc .H1 { list-style-type:none; font-weight:600; margin:4px; border-bottom:1px dotted grey }
 .toc .H2 { list-style-type:none; font-weight:600; margin:4px; }
 .toc .H3 { margin-left:2em }
 .toc .H4 { margin-left:4em }
@@ -237,9 +238,12 @@ md.toc = function (srcDiv, tocDiv, options ) {
 
 <body>
 
-<div id=header class="theme">
-  <span id=title>casual-markdown</span>
+<div id=header>
   <span id=menu style="float:right; padding:12px"></span>
+  <span id=heading style="float:left">
+   <span id=title>casual-markdown</span> 
+   <p id=subtitle>simple is the best</p>
+  </span>
 </div>
 
 <div id=content>
@@ -278,18 +282,19 @@ function toggleHTML() {
 function darkmode() {
   var css = document.getElementById('theme').textContent
   var dark = ' body, pre, code { background:#333!important; color:#ccc!important } '
-  dark += '\n #header, a {background:#555;} th, tr:nth-child(even) {color:#333}' 
+  dark += '\n #header, a, .H1 {background:#555;} th, tr:nth-child(even) {color:#333}' 
   document.getElementById('theme').textContent = (css===(md.yaml.style||'')? dark : md.yaml.style||'')
 }
 
 //=== load post from markdown file. 
 md.load = function (mdfile) { 
-  var xmlhttp = new XMLHttpRequest();
+  var txt, xmlhttp = new XMLHttpRequest();
   xmlhttp.onload = function (e) {
     if (this.status == '404' ) {
       document.getElementById('modal').style.display='block'
-    } else { 
-      document.getElementById('md-post').innerHTML = md.html(this.responseText) + '<br>'
+    } else {
+      txt =  this.responseText.replace(/\[(.*?)\]\((.*?\.md)\)/gm, '<a href=# onclick="md.load(this.title)" title="$2">$1</a>')
+      document.getElementById('md-post').innerHTML = md.html(txt) + '<br>'
       document.getElementById('right-panel').scrollTop = 0
     }
   }
@@ -302,13 +307,17 @@ window.onload = function () {
   var xmlhttp = new XMLHttpRequest();
   
   xmlhttp.onload = function (e) {
+    // load markdown content
     md.text = this.responseText.replace(/\[(.*?)\]\((.*?\.md)\)/gm, '<a href=# onclick="md.load(this.title)" title="$2">$1</a>')
     document.getElementById('right-panel').innerHTML = md.html(md.text) + '<br>'
     md.toc( 'right-panel', 'left-panel', { title:'none', scrollspy:'right-panel'} )
     
-    document.title = document.getElementById('title').innerText = md.yaml.title || 'Markdown Page' 
+    // apply title/subtitle/style
+    document.title = document.getElementById('title').innerText = md.yaml.title || 'Casual-Markdown'
+    document.getElementById('subtitle').innerText = md.yaml.subtitle || '' 
     document.getElementById('theme').textContent = md.yaml.style ||''
     
+    // top menu
     var i, html = ''
     for (i in md.yaml.menu) { 
        html += '<a href=# onclick="' + (md.yaml.menu[i].substr(-3)==='.md'? "md.load('"+md.yaml.menu[i]+"')" : md.yaml.menu[i] ) 
