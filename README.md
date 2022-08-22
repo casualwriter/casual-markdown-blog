@@ -27,7 +27,6 @@ below is index.md for [Casual-Markdown Sample Blog](./blog)
 -----------------------------------------------------------------------------
 github  : https://github.com/casualwriter/casual-markdown-blog
 title   : Casual-Markdown Sample Blogs 
-color-m : BlueViolet
 menu    : 
   Home    : index.md
   Dark    : javascript:darkmode()
@@ -55,6 +54,7 @@ menu    :
 ### History
 
 * 2022/08/19: a roughly version, minor revised from [casual-markdown-page](https://github.com/casualwriter/casual-markdown-page)
-* todo: 
+* 2022/08/22: 0.40, basically work
+...
 * todo: more customized options
  
