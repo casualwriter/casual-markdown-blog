@@ -1,6 +1,4 @@
-## Is RegExp readable?]
-
-2022/08/10 By Casualwriter. Tags: [#regexp](?tag=regexp)
+## Is RegExp readable?
 
 ![](campo03.jpg)
 

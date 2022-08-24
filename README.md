@@ -2,59 +2,54 @@
 
 Build blog site by markdown files. 
 
-1. write blog by markdown (e.g. 20220728-use-markdown-for-blog.md)
-2. config site at index.md (title, logo, menu, category, style)
-3. update blog index at index.md
-
-### Sample Site 
+It is very handy to build simple web-site from markdown files, and host on static web hosting. For example, 
 
 * [self-host on github](https://raw.githack.com/casualwriter/casual-markdown-blog/main/source/index.html)
-* [Casual-Markdown Sample Blog](https://casualwriter.github.io/casual-markdown/blog)
-* [Casualwriter's Blog](https://casualwriter.github.io/blog)
+* [Casual-Markdown's Blog](https://casualwriter.github.io/casual-markdown/blog)
+* Dark theme: https://casualwriter.github.io/casual-markdown/blog?theme=dark
+* Dark (always): https://casualwriter.github.io/casual-markdown/blog?home=index-dark.md
+* Nav at right-side: https://casualwriter.github.io/casual-markdown/blog?home=index-right.md 
+
+What you need is one file [index.html](source/index.html) and config home page at [index.md](source/index.md)
+
+### Features
+
+* single html
+* vanilla javascript, no dependence
+* support all browser (include IE9)
+* dark mode
+* responsive, support mobile
+* customized theme (by css style)
 
 ### Usage Guide
 
-simply put copy [index.html](https://github.com/casualwriter/casual-markdown-page/blob/main/source/index.html) 
-or all-in-one version [index-one.html](https://github.com/casualwriter/casual-markdown-page/blob/main/source/index-one.html) 
-to web server. 
+simply put copy [index.html](https://github.com/casualwriter/casual-markdown-page/blob/main/source/index.html) to web server. 
 
-* config site at index.md (title, logo, menu, category, style)
-* update blog index at index.md
+* config site at index.md (title, subtitle, header-color, navigation, etc..)
+* start to write blog post using markdown
+* to publish, just update post at index.md by syntax ``* yyyy/mm/dd: [post-title](md-file) { #tags }``
                                           
-below is index.md for [Casual-Markdown Sample Blog](./blog)
+below is index.md for [Sample Blog](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md)
  
 ~~~  
 -----------------------------------------------------------------------------
-github  : https://github.com/casualwriter/casual-markdown-blog
-title   : Casual-Markdown Sample Blogs 
-menu    : 
-  Home    : index.md
-  Dark    : javascript:darkmode()
-  About   : about.md
+github     : https://github.com/casualwriter/casual-markdown-blog
+title      : Casual-Markdown's Blog 
+subtitle   : Simple is the best
+nav-group  : featured, new-3, tags, months
+nav-width  : 320px
+css-header : background:linear-gradient(to bottom right, #06c, #fc0); color:white
+menu       : 
+   Home    : ?
+   Dark    : javascript:darkmode()
+   About   : ?page=about.md
 -----------------------------------------------------------------------------
-<div id="md-post">
-
-# Archives
-   
-### Aug 2022
-                    
-* 2022/08/19: [Markdown as blog](20220819-markdown-as-blog.md) { @campo.jpg, #markdown, #blog }
-* 2022/08/10: [Is regexp readable?](20220810-is-regexp-readable.md) { @image.jpg, #regexp, #web-dev }
-* 2022/08/03: [My dream web browser](20220803-my-dream-web-browser.md) { @image.jpg, #web, #dev }
-
-### July 2022
-                    
-* 2022/07/30: [frontmatter for simple YAML](20220730-frontmatter.md) { @pp-web-crawler.jpg, #markdown, #regexp }
-* 2022/07/22: [release casual-markdown v0.85](20220722-casual-markdown-v0.85.md) {#featured, #markdown, #regexp, @pp-web-crawler.jpg }
-
-</div>
+....
 ~~~ 
 
 
 ### History
 
-* 2022/08/19: a roughly version, minor revised from [casual-markdown-page](https://github.com/casualwriter/casual-markdown-page)
-* 2022/08/22: 0.40, basically work
-...
-* todo: more customized options
+* 2022/08/24: 0.60, first release
+
  

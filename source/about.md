@@ -10,5 +10,4 @@ like all simple things, working on simple, lightweight, independence, portable s
 
 ### History
                     
-* 2022/07/30: first draft, not ready yet
-* 2022/08/19: 0.30, rough version, minor revise from [casual-markdown-page](https://github.com/casualwriter/casual-markdown-page)
+* 2022/08/24: 0.60, initial release. 

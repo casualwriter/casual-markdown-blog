@@ -1,25 +1,24 @@
 -----------------------------------------------------------------------------
 github     : https://github.com/casualwriter/casual-markdown-blog
-title      : Casual-Markdown's Blog 
+title      : Casual-Markdown-Blog 
 subtitle   : By Casual-Markdown-Blog
-nav-group  : featured, new-3, tags, months
-nav-width  : 320px
-css-header : background:linear-gradient(to bottom right, #06c, #fc0); color:white
+nav-group  : featured, new-5, tags, months
+nav-width  : 380px
 menu       : 
-   Home    : ?
-   Dark    : javascript:darkmode()
-   About   : ?page=about.md
+   Home    : ?home=index-right.md
+   Dark    : ?home=index-right.md&theme=dark
+   About   : ?home=index-right.md&page=about.md
 -----------------------------------------------------------------------------
-<style comment="additional style">
-#header { {{css-header}}  }
-#left-panel  { width:{{nav-width}} }
-#right-panel { left: calc({{nav-width}} + 20px) }
+<style comment="show nav at right">
+#header { xbackground: linear-gradient(to bottom right, #06c, #fc0); }
+#left-panel  { right:0; left:auto; width: {{nav-width}} }
+#right-panel { left:0; right:calc({{nav-width}} + 20px) }
 h1 { border-bottom:1px dotted grey }
 .nav-post a  { color: teal }
 .nav-tag  a  { color: #06c }
 .nav-month a { color: grey }
-.post-date   { font-size:12px; font-weight:400; }
-.post-title  { font-size:16px; color:#333 }
+.post-date   { font-size:10px; font-weight:400; color:#aaa }
+.post-title  { font-size:16px; }
 .post-tags   { left-margin:20px; padding:4px; font-size:10px; color:green; font-weight:400 }
 </style>
 

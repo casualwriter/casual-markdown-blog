@@ -1,14 +1,12 @@
 ## Markdown as Blog
 
-2022/08/20 By Casualwriter. Tags: [#markdown](?tag=markdown), [#blog](?tag=blog)
-
 ![](campo01.jpg)
 
 Quite happy to use markdown to draft document or blog post, but publish to web is 
 a little trouble which need to 
 
 1. find a web hosting
-2. setup blog framework, or blog management program (e.g. wordpress)
+2. setup blog framework (e.g. wordpress)
 3. design layout, menu navigation, etc..
 4. start draft post
 
@@ -22,14 +20,15 @@ Sure, try [casual-markdown-blog]!
 
 the blog site is ready by add the file of [index.html](https://github.com/casualwriter/casual-markdown-blog/blob/main/source/index.html)
 
-Check out the sample site
+Check out the sample sites
 
 * [self-host on github](https://raw.githack.com/casualwriter/casual-markdown-blog/main/source/index.html)
 * [source of the blog](https://github.com/casualwriter/casual-markdown-blog/tree/main/source)
 
-* Githubg-page: [Sample Blog of Casual-Markdown](https://casualwriter.github.io/casual-markdown/blog)
-* Githubg-page: [Casualwriter's Blog](https://casualwriter.github.io/blog)
-
+* Githubg-page: [Casual-Markdown's Blog](https://casualwriter.github.io/casual-markdown/blog)
+* Dark Theme: https://casualwriter.github.io/casual-markdown/blog?theme=dark
+* Always-Dark: https://casualwriter.github.io/casual-markdown/blog?home=index-dark.md
+* Right-Nav:  https://casualwriter.github.io/casual-markdown/blog?home=index-right.md
 
 Have a nice day,
 

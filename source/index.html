@@ -5,17 +5,21 @@
 <script src="https://cdn.jsdelivr.net/gh/casualwriter/casual-markdown/dist/casual-markdown.js"></script>
 <style>  
 body { font-family:Verdana,sans-serif; font-size:14px; line-height:1.5; margin:0; }
-a 	 { background:transparent; text-decoration:none; color:navy } a:active, a:hover { outline-width:0; background:#ffd700 }
-#header { background:#0057b7; color:white; width:100%; height:60px; }
+a 	 { background:transparent; text-decoration:none; color:grey } a:hover { background:#ffd700 }
+nav p  { border-bottom:1px dotted grey; padding:4px; font-weight:700 }
+nav li { margin-left:12px }
+
+#header { background:grey; color:white; width:100%; height:60px; }
 #title  { float:left;font-size:18px; font-weight:700; padding:8px  }
 #subtitle { font-size:75%; padding:8px; color:#bbb }
 #menu button, #menu a  { font-family:Verdana,Arial; border:none; padding:4px 8px; color:inherit; background:inherit; }
-#menu button:hover, #menu a:hover { color:#000; background:#ffd700 }
-#menu button:disabled {cursor:not-allowed; opacity:0.5}: disabled *{pointer-events:none}
-#left-panel 	{ position:absolute; left:0; bottom:0; width:340px; top:58px; border:1px solid grey; overflow:auto; padding:8px }
-#right-panel 	{ position:absolute; right:0; bottom:0; left:360px; top:58px; border:1px solid grey; overflow:auto; padding:8px 16px }
-nav p  { border-bottom:1px dotted grey; padding:4px; font-weight:700 }
-nav li { margin-left:12px }
+#menu button:hover, #menu a:hover { color:#222; background:#ffd700 }
+#left-panel 	{ position:absolute; left:0; width:340px; top:60px; border:1px solid grey; padding:8px }
+#right-panel 	{ position:absolute; right:0; left:360px; top:60px; border:1px solid grey; padding:8px 16px }
+
+.dark, .dark pre, .dark code, .dark blockquote { background:#333!important; color:#ccc!important }
+.dark #header { background:#444 }  .dark a { color:#eee }
+.dark th, .dark tr:nth-child(even) {color:#333}
 
 @media print{
   #header, #left-panel { display:none!important }
@@ -49,14 +53,13 @@ nav li { margin-left:12px }
   <div id="right-panel" style="display:none"></div>
 </div>
 
-<style id=theme comment="for additional style"></style>
 <button style="display:none" onclick="toggleHTML()" accesskey=s>ShowHTML</button> 
 <button style="display:none" onclick="darkmode()" accesskey=k>Dark</button> 
 
 <script>
 /*****************************************************************************
  * casual-markdown-page - markdown as blog
- * last updated on 2022/08/22, v0.50, generate feature/latest/tag/month for nav-panel
+ * last updated on 2022/08/24, v0.60, supprot nav, home, theme and customized style 
  *
  * Copyright (c) 2022, Casualwriter (MIT Licensed)
  * https://github.com/casualwriter/casual-markdown-blog
@@ -65,7 +68,7 @@ nav li { margin-left:12px }
 //=== toggle HTML in right-panel. (this is a hidden function for developer)
 function toggleHTML() {
   var html = document.getElementById('right-panel').innerHTML
-  if (html.substr(0,5)=='<xmp>') {
+  if (html.substr(0,5)==='<xmp>') {
      document.getElementById('right-panel').innerHTML = html.substr(5, html.length-11)
   } else {
      document.getElementById('right-panel').innerHTML = '<xmp>' + html.replace(/xmp\>/g,'xmp&gt;') + '</xmp>' 
@@ -74,10 +77,7 @@ function toggleHTML() {
 
 //=== apply dark mode style
 function darkmode() {
-  var css = document.getElementById('theme').textContent
-  var dark = ' body, pre, code { background:#333!important; color:#ccc!important } '
-  dark += '\n #header, a, .H1 {background:#555;} th, tr:nth-child(even) {color:#333}' 
-  document.getElementById('theme').textContent = (css===(md.yaml.style||'')? dark : md.yaml.style||'')
+  document.body.className = (document.body.className==='dark'? md.yaml.theme || '' : 'dark' )
 }
 
 //=== load post from markdown file. 
@@ -90,10 +90,28 @@ md.load = function (mdfile) {
       txt =  this.responseText.replace(/\[(.*?)\]\((.*?\.md)\)/gm, '<a href=# onclick="md.load(this.title)" title="$2">$1</a>')
       document.getElementById('md-post').innerHTML = md.html(txt) + '<br>'
       document.getElementById('right-panel').scrollTop = 0
+      md.showTags(mdfile)
     }
   }
   xmlhttp.open("GET", mdfile, true)
   xmlhttp.send();
+}
+
+//=== show tags for md post
+md.showTags = function (file) {
+  var post = md.posts.find( function(p){return p.file===file} )
+  var title = document.getElementById('md-post').querySelector('h1,h2,h3,h4')
+
+  if (post && title) {
+    var node = document.createElement("p");
+    var html = '<span class="post-date">Date: ' + post.date.toISOString().substr(0,10)
+    html += '</span>&nbsp; <span class="post-tags">Tags: ' 
+    for (var i=0; i<post.tags.length; i++) {
+      html += '<a href="?tag=' + post.tags[i] + '">#' + post.tags[i] + '</a> '
+    }
+    node.innerHTML = html + '</span>'
+    title.parentNode.insertBefore(node, title.nextSibling);
+  }
 }
 
 //=== get blog list from "* yyyy/mm/dd: [post-title](md-file) { #tags }"
@@ -115,8 +133,8 @@ md.getPosts = function (match,date,title,file,tags) {
   md.months[mth].push(post)  
   
   // return html
-  return '* <span class="post-date">' + date + '</span>: <a class="post-title" href="?post='  
-        + file + '">' + title + '</a><span class="post-tags">' + tags + '</span>' 
+  return '* <span class="post-date">' + date + '</span>: <a class="post-title" href="?' + md.home
+        + 'post=' + file + '">' + title + '</a><span class="post-tags">' + tags + '</span>' 
 }
 
 //=== generate nav content by options := featured | new-? | tags | month
@@ -125,11 +143,12 @@ md.nav = function (options) {
   var navDiv = '<nav>'
   
   for (var i=0; i<navOpt.length; i++) {
+  
     // generate featured posts list
     if (navOpt[i].trim() === 'featured') {
       navDiv += '<p class="nav-title">Featured</p>'  
       for (var x=0; md.tags.featured&&x<md.tags.featured.length; x++) {
-        navDiv += '<li class="nav-post"><a href="?post=' 
+        navDiv += '<li class="nav-post"><a href="?' + md.home + 'post=' 
         navDiv += md.tags.featured[x].file + '">' + md.tags.featured[x].title + '</a></li>'
       }
       
@@ -138,7 +157,7 @@ md.nav = function (options) {
       var max = 0 + navOpt[i].trim().substr(4)
       navDiv += '<p class="nav-title">New posts</p>'
       for (var x=0; x<max && x<md.posts.length; x++) {
-        navDiv += '<li class="nav-post"><a href="?post=' 
+        navDiv += '<li class="nav-post"><a href="?' + md.home + 'post=' 
         navDiv += md.posts[x].file + '">' + md.posts[x].title + '</a></li>'
       }
       
@@ -146,7 +165,7 @@ md.nav = function (options) {
     } else if (navOpt[i].trim() === 'tags') {
       navDiv += '<p class="nav-title">Tags</p>'  
       for (var tag in  md.tags) {
-        navDiv += '<li class="nav-tag"><a href="?tag=' + tag + '">' + tag + '</a>'
+        navDiv += '<li class="nav-tag"><a href="?' + md.home + 'tag=' + tag + '">' + tag + '</a>'
         navDiv += ' <sup>(' + md.tags[tag].length + ')</sup></li>'
       }
        
@@ -154,7 +173,7 @@ md.nav = function (options) {
     } else if (navOpt[i].trim() === 'months') {
       navDiv += '<p class="nav-title">Archive</p>'  
       for (var mth in  md.months) {
-        navDiv += '<li class="nav-month"><a href="?month=' + mth + '">' + mth + '</a>'
+        navDiv += '<li class="nav-month"><a href="?' + md.home + 'month=' + mth + '">' + mth + '</a>'
         navDiv += ' <sup>(' + md.months[mth].length + ')</sup></li>'
       }
     }
@@ -172,22 +191,24 @@ md.listPost = function (post) {
 
 //=== show post list for tag
 md.showTag = function (tag) {
-  var html = '\n<h2>Tagged by<code>#' + tag + '</code></h2>\n<ul>\n'
+  var html = '\n<h2>Tagged by <code>#' + tag + '</code></h2>\n<ul>\n'
   for (var i=0; md.tags[tag]&&i<md.tags[tag].length; i++) html += md.listPost(md.tags[tag][i])
   document.getElementById('md-post').innerHTML = html + '\n</ul><br>'
 }
 
-//=== massage md link before parse markdown
+//=== massage md link before parse markdown        
 md.before = function (text) {
- return text.replace(/\[(.*?)\]\((.*?\.md)\)/gm, '<a href="?post=$2">$1</a>')
+ return text.replace(/\[(.*?)\]\((.*?\.md)\)/gm, '<a href="?' + md.home + 'post=$2">$1</a>')
 } 
 
-//=== init objects, and parse url parameters
+//=== parse url parameters, init blog objects
+md.params = {} 
+window.location.href.replace( /[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { md.params[key] = value; } );
 md.posts  = []
 md.tags   = {}
 md.months = {}
-md.params = {} 
-window.location.href.replace( /[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) { md.params[key] = value; } );
+md.home = (md.params.home? 'home=' + md.params.home + '&' : '')
+md.home += (md.params.theme? 'theme=' + md.params.theme + '&' : '' )
 
 //=== init blog apge.
 window.onload = function () { 
@@ -200,10 +221,10 @@ window.onload = function () {
     document.getElementById('right-panel').innerHTML = md.html(md.text) + '<br>'
     md.nav( md.yaml['nav-group'] )
     
-    // apply title/subtitle/style
+    // apply style/title/subtitle
+    document.body.className = md.params.theme || md.yaml.theme || ''
     document.title = document.getElementById('title').innerText = md.yaml.title || 'Casual-Markdown'
     document.getElementById('subtitle').innerText = md.yaml.subtitle || '' 
-    document.getElementById('theme').textContent = md.yaml.style ||''
     
     // top menu
     var i, html=''
@@ -227,7 +248,7 @@ window.onload = function () {
     document.getElementById('right-panel').style.display = 'block'
   }
   
-  xmlhttp.open("GET", 'index.md' , true)
+  xmlhttp.open("GET", md.params.home||'index.md' , true)
   xmlhttp.send();
 }
 
