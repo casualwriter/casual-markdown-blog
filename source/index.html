@@ -14,8 +14,8 @@ nav li { margin-left:12px }
 #subtitle { font-size:75%; padding:8px; color:#bbb }
 #menu button, #menu a  { font-family:Verdana,Arial; border:none; padding:4px 8px; color:inherit; background:inherit; }
 #menu button:hover, #menu a:hover { color:#222; background:#ffd700 }
-#left-panel 	{ position:absolute; left:0; width:340px; top:60px; border:1px solid grey; padding:8px }
-#right-panel 	{ position:absolute; right:0; left:360px; top:60px; border:1px solid grey; padding:8px 16px }
+#left-panel 	{ position:absolute; left:0; width:340px; top:60px; padding:8px }
+#right-panel 	{ position:absolute; right:0; left:360px; top:60px; border-left:1px solid grey; padding:8px 16px }
 
 .dark, .dark pre, .dark code, .dark blockquote { background:#333!important; color:#ccc!important }
 .dark #header { background:#444 }  .dark a { color:#eee }
@@ -23,18 +23,18 @@ nav li { margin-left:12px }
 
 @media print{
   #header, #left-panel { display:none!important }
-  #right-panel { position:relative; width:100%; left:0px; top:0px; border:none; height:auto; overflow:hidden }
+  #right-panel { position:relative; width:100%!important; left:0px; top:0px; border:none; height:auto; overflow:hidden }
 }
 
 @media screen and (min-width: 600px) and (max-width: 900px){ 
   #header { width:100%; height:80px; }
-  #left-panel 	{ display:none; position:absolute; left:0px; width:100%; top:80px; border:1px solid grey; overflow:auto; padding:4px 8px }
-  #right-panel 	{ position:absolute; left:0px; width:100%;; top:80px; border:1px solid grey; overflow:auto; padding:4px 8px }
+  #left-panel 	{ display:none; position:absolute; left:0px!important; width:100%!important; top:80px; padding:4px 8px }
+  #right-panel 	{ position:absolute; left:0px!important; width:100%; top:80px; overflow:auto; padding:4px 8px }
 }
 @media screen and (max-width: 600px) {
   #header { width:100%; height:100px; }
-  #left-panel 	{ display:none; position:absolute; left:0px; width:100%; top:100px; border:1px solid grey; overflow:auto; padding:4px 8px }
-  #right-panel 	{ position:absolute; left:0px; width:100%;; top:100px; border:1px solid grey; overflow:auto; padding:4px 8px }
+  #left-panel 	{ display:none; position:absolute; left:0px!important; width:100%!important; top:100px; padding:4px 8px }
+  #right-panel 	{ position:absolute; left:0px!important; width:100%; top:100px; overflow:auto; padding:4px 8px }
 }
 </style>
 

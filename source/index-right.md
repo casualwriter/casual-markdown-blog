@@ -12,7 +12,7 @@ menu       :
 <style comment="show nav at right">
 #header { xbackground: linear-gradient(to bottom right, #06c, #fc0); }
 #left-panel  { right:0; left:auto; width: {{nav-width}} }
-#right-panel { left:0; right:calc({{nav-width}} + 20px) }
+#right-panel { left:0; border-right:1px solid grey; right:calc({{nav-width}} + 20px) }
 h1 { border-bottom:1px dotted grey }
 .nav-post a  { color: teal }
 .nav-tag  a  { color: #06c }

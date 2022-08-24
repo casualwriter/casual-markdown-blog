@@ -27,7 +27,9 @@ simply copy [index.html](https://github.com/casualwriter/casual-markdown-page/bl
 
 * config site at index.md (title, subtitle, header-color, navigation, etc..)
 * start to write blog post using markdown
-* to publish, just update post at index.md by syntax ``* yyyy/mm/dd: [post-title](md-file) { #tags }``
+* to publish, just update post at index.md by syntax 
+
+> * yyyy/mm/dd: [post-title](md-file) { #tags }
                                           
 below is sample from [Sample Blog](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md)
  
