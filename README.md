@@ -12,6 +12,8 @@ It is very handy to build simple web-site from markdown files, and host on stati
 
 What you need is one file [index.html](source/index.html) and config home page at [index.md](source/index.md)
 
+then start write post in markdown!
+
 ### Features
 
 * single html
@@ -27,10 +29,16 @@ simply copy [index.html](https://github.com/casualwriter/casual-markdown-page/bl
 
 * config site at index.md (title, subtitle, header-color, navigation, etc..)
 * start to write blog post using markdown
-* to publish, just update post at index.md by syntax ``* yyyy/mm/dd: [post-title](md-file) { #tags }``
-                                          
-below is sample from [Sample Blog](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md)
- 
+* to publish, just update post at index.md by syntax 
+
+~~~
+* yyyy/mm/dd: [post-title](md-file) { #tags }
+~~~
+
+index.md is also shown as HOME page of blog site.
+
+below is sample setup from [Sample Blog: index.md](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md)
+
 ~~~  
 -----------------------------------------------------------------------------
 github     : https://github.com/casualwriter/casual-markdown-blog
@@ -44,6 +52,7 @@ menu       :
    Dark    : javascript:darkmode()
    About   : ?page=about.md
 -----------------------------------------------------------------------------
+
 <style comment="additional style">
 ......
 </style>
@@ -54,11 +63,10 @@ home page in markdown syntax
 
 ## Archive
 
-* yyyy/mm/dd: Post Title   { #tag1, #tag2 }
-* yyyy/mm/dd: Post Title   { #tag1, #tag2 }
+* yyyy/mm/dd: [Post Title](md file)  { #tag1, #tag2 }
+* yyyy/mm/dd: [Post Title](md file)  { #tag1, #tag2 }
 ...
-* yyyy/mm/dd: Post Title   { #tag1, #tag2 }
-* yyyy/mm/dd: Post Title   { #tag1, #tag2 }
+* yyyy/mm/dd: [Post Title](md file)  { #tag1, #tag2 }
 
 </div>
 ~~~ 
