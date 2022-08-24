@@ -1,4 +1,4 @@
-## casual-markdown-blog (to-be-released)
+## casual-markdown-blog
 
 Build blog site by markdown files. 
 
@@ -23,13 +23,13 @@ What you need is one file [index.html](source/index.html) and config home page a
 
 ### Usage Guide
 
-simply put copy [index.html](https://github.com/casualwriter/casual-markdown-page/blob/main/source/index.html) to web server. 
+simply copy [index.html](https://github.com/casualwriter/casual-markdown-page/blob/main/source/index.html) to web server. 
 
 * config site at index.md (title, subtitle, header-color, navigation, etc..)
 * start to write blog post using markdown
 * to publish, just update post at index.md by syntax ``* yyyy/mm/dd: [post-title](md-file) { #tags }``
                                           
-below is index.md for [Sample Blog](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md)
+below is sample from [Sample Blog](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md)
  
 ~~~  
 -----------------------------------------------------------------------------
@@ -44,7 +44,23 @@ menu       :
    Dark    : javascript:darkmode()
    About   : ?page=about.md
 -----------------------------------------------------------------------------
-....
+<style comment="additional style">
+......
+</style>
+
+<div id="md-post">
+
+home page in markdown syntax
+
+## Archive
+
+* yyyy/mm/dd: Post Title   { #tag1, #tag2 }
+* yyyy/mm/dd: Post Title   { #tag1, #tag2 }
+...
+* yyyy/mm/dd: Post Title   { #tag1, #tag2 }
+* yyyy/mm/dd: Post Title   { #tag1, #tag2 }
+
+</div>
 ~~~ 
 
 
