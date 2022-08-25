@@ -4,8 +4,8 @@ Build blog site by markdown files.
 
 It is very handy to build simple web-site from markdown files, and host on static web hosting. For example, 
 
-* [self-host on github](https://raw.githack.com/casualwriter/casual-markdown-blog/main/source/index.html)
-* [Casual-Markdown's Blog](https://casualwriter.github.io/casual-markdown/blog)
+* Self-host on github: https://raw.githack.com/casualwriter/casual-markdown-blog/main/source/index.html
+* Casual-Markdown's Blog: https://casualwriter.github.io/casual-markdown/blog
 * Dark theme: https://casualwriter.github.io/casual-markdown/blog?theme=dark
 * Dark (always): https://casualwriter.github.io/casual-markdown/blog?home=index-dark.md
 * Nav at right-side: https://casualwriter.github.io/casual-markdown/blog?home=index-right.md 
@@ -17,9 +17,9 @@ then start write post in markdown!
 ### Features
 
 * single html
-* vanilla javascript, no dependence
+* no dependence in vanilla javascript
 * support all browser (include IE9)
-* dark mode
+* dark mode or dark theme
 * responsive, support mobile
 * customized theme (by css style)
 
