@@ -5,9 +5,10 @@ subtitle   : By Casual-Markdown-Blog
 nav-group  : featured, new-5, tags, months
 nav-width  : 380px
 menu       : 
-   Home    : ?home=index-right.md
-   Dark    : ?home=index-right.md&theme=dark
-   About   : ?home=index-right.md&page=about.md
+   Home    : ?
+   github  : https://github.com/casualwriter/casual-markdown-blog
+   Dark    : javascript:darkmode()
+   About   : ?page=about.md
 -----------------------------------------------------------------------------
 <style comment="show nav at right">
 #header { xbackground: linear-gradient(to bottom right, #06c, #fc0); }

@@ -6,8 +6,9 @@ nav-group  : featured, new-3, tags, months
 nav-width  : 320px
 theme      : dark
 menu       : 
-   Home    : ?home=index-dark.md
-   About   : ?home=index-dark.md&page=about.md
+   Home    : ?
+   github  : https://github.com/casualwriter/casual-markdown-blog
+   About   : ?page=about.md
 -----------------------------------------------------------------------------
 <style comment="additional style">
 #header { {{css-header}}  }
