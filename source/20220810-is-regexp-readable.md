@@ -1,7 +1,5 @@
 ## Is RegExp readable?
 
-![](campo03.jpg)
-
 Of course not! But does RegExp make the code not readable?
 
 I learned RegExp by coding a [markdown parser](https://github.com/casualwriter/casual-markdown). love it!
@@ -41,7 +39,9 @@ md_str = lines.join('<br>')
 I prefer to read the first code if donot need to figure out how regexp work.
 
 I finally realized that make the code not readable is the "Complexity" instead of "RegExp". 
-"RegExp" solve the problem, and compress the "Complexity" in a piece of code. That's why it is hard to read!
+"RegExp" solve the problem, and contain the "Complexity" in a piece of code. 
+
+That's why RegExp is not readable, and it make other code more readable in most situation.
 
 
-(2022/08/26, hk)
+![](campo03.jpg)

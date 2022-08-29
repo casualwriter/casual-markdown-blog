@@ -40,14 +40,6 @@ h1 { border-bottom:1px dotted grey }
 > 
 > Sure not. But does regexp make the code not readable?
 
-## [My dream web browser](20220803-my-dream-web-browser.md)
-> ![My Dream brwoser](campo02.jpg)
-> date: 2022/08/03, tags: `#wev, #dev, #html`
-> 
-> web browser is a powerful GUI render engine.
-> have to work with web-server or web-service for app. dev.
-> can we put them all together?
-
 
 # Archives
    
@@ -55,17 +47,14 @@ h1 { border-bottom:1px dotted grey }
                     
 * 2022/08/20: [Markdown as blog](20220820-markdown-as-blog.md) { #markdown, #blog, #featured }
 * 2022/08/10: [Is RegExp readable?](20220810-is-regexp-readable.md) { #regexp }
-* 2022/08/03: [My dream web browser](20220803-my-dream-web-browser.md) { #web }
 
 ### July 2022
                     
-* 2022/07/30: [frontmatter for simple YAML](20220730-frontmatter.md) { #markdown, #regexp }
-* 2022/07/22: [release of casual-markdown v0.85](20220722-casual-markdown-v0.85.md) { #markdown, #regexp }
+* 2022/07/31: [release of casual-markdown v0.90](20220731-casual-markdown-v0.90.md) { #markdown, #regexp }
 
 ### Oct 2021
 
-* 2021/10/20: [Code a markdown editor in 80 lines](20211020-powerpage-markdown-editor.md) { #powerpage, #markdown }
-* 2021/07/20: [Crawl blogs by powerpage-web-crawler](20210720-powerpage-web-crawler.md) { #powerpage }
-* 2021/06/18: [Develop html application by PowerPage](20210618-powerpage-html-application.md) { #powerpage }
+* 2021/10/28: [Portable lightweight web crawler](20211028-powerpage-web-crawler.md) { #powerpage }
+* 2021/10/05: [Develop html application by PowerPage](20211005-powerpage-0.60.md) { #powerpage }
 
 </div>
