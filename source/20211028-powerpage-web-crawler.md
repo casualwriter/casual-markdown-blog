@@ -9,8 +9,6 @@ Just code a portable lightweight web crawler using **Powerpage**.
 portable javascript-application running with [Powerpage](https://github.com/casualwriter/powerpage). 
 It is coded by vanilla javascript in about 350 lines codes, without any dependency.
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kdc3tpb1hwoc47i6jcsq.gif)
-
 `Powerpage Web Crawler` is a portable program, just simply download and run `powerpage.exe`. 
 It is a powerful and easy-to-use web-scrawler suitable for blog site crawling and offline-reading.
 
@@ -42,6 +40,11 @@ By the way, sorry for beginner coding style and rough screen layout (for indepen
 
 Enjoy,
 
+
+----
+Screen records:
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kdc3tpb1hwoc47i6jcsq.gif)
 
 
 
