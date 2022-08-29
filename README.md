@@ -1,6 +1,6 @@
 ## casual-markdown-blog
 
-Build blog site by markdown files and single html [index.html](source/index.html) 
+Build blog site by markdown files and single [index.html](source/index.html). 
 
 What we need is config home page at [index.md](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md), then start write post in markdown!
 
