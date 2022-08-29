@@ -1,6 +1,8 @@
 ## casual-markdown-blog
 
-Build blog site by markdown files. 
+Build blog site by markdown files and single html [index.html](source/index.html) 
+
+What we need is config home page at [index.md](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md), then start write post in markdown!
 
 It is very handy to build simple blog-site from markdown files, and host on static web hosting. For example, 
 
@@ -9,11 +11,6 @@ It is very handy to build simple blog-site from markdown files, and host on stat
 * Dark theme: https://casualwriter.github.io/casual-markdown/blog?theme=dark
 * Dark (always): https://casualwriter.github.io/casual-markdown/blog?home=index-dark.md
 * Nav at right-side: https://casualwriter.github.io/casual-markdown/blog?home=index-right.md 
-
-All we need is one file [index.html](source/index.html) 
-and config home page at [index.md](https://raw.githubusercontent.com/casualwriter/casual-markdown-blog/main/source/index.md)
-
-then start write post in markdown!
 
 ### Features
 
