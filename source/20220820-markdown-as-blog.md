@@ -9,16 +9,18 @@ a little trouble which need to
 2. setup blog framework (e.g. wordpress)
 3. design layout, menu navigation, etc..
 4. start draft post
+5. publish the post
 
 Can we just simply write to markdown file and post it?
 
-Sure, try [casual-markdown-blog]! 
+Yes, [casual-markdown-blog](https://github.com/casualwriter/casual-markdown-blog) is coded for this purpose! 
+It just use a single html to manage a markdown blog site on static web-hosting.
 
 1. find a free web hosting. e.g. github-page
 2. setup some basic info (e.g. blog site title, about me) in index.md
 3. start draft posts in markdown.
 
-the blog site is ready by add the file of [index.html](https://github.com/casualwriter/casual-markdown-blog/blob/main/source/index.html)
+the blog site is ready by adding the file of [index.html](https://github.com/casualwriter/casual-markdown-blog/blob/main/source/index.html)
 
 Check out the sample sites
 

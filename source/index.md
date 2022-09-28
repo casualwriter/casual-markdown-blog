@@ -42,6 +42,10 @@ h1 { border-bottom:1px dotted grey }
 
 
 # Archives
+
+### Sep 2022
+
+* 2022/09/28: [Build online resume by markdown](20220927-markdown-as-resume.md) { #markdown, #resume, #featured }
    
 ### Aug 2022
                     

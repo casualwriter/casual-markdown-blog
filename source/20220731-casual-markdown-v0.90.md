@@ -28,7 +28,7 @@ This minor revision provides more possibility to make use of markdown document.
 * Markdown-as-Document: https://github.com/casualwriter/casual-markdown-doc 
 * Markdown-as-WebPage: https://github.com/casualwriter/casual-markdown-page   
 * Markdown-as-Blog: https://github.com/casualwriter/casual-markdown-blog 
-
+* Markdown-as-Resume: https://github.com/casualwriter/casual-markdown-cv
 
 
 ![](campo02.jpg)
