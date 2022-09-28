@@ -27,29 +27,30 @@ h1 { border-bottom:1px dotted grey }
 <div id="md-post">
 # Featured
 
-## [Markdown as blog](20220820-markdown-as-blog.md)
-> ![build blog site by markdown files](campo01.jpg)
-> date:2022/08/20, tags: `#markdown, #blog`
+## [Build online resume by markdown](20220927-markdown-as-resume.md)
+> ![markdown resume](http://casualwriter.github.io/casual-markdown/casual-markdown-cv.png)
+> date:2022/09/27, tags: `#markdown`
 > 
 > build blog site by markdown files in minutes.
 > host on github, or other static web hosting  
 
-## [Is RegExp readable?](20220810-is-regexp-readable.md)
-> ![does regexp make the code not readable?](campo03.jpg)
-> date: 2022/08/10, tags: `#regexp, #web-dev`
+## [Markdown as blog](20220820-markdown-as-blog.md)
+> ![build blog site by markdown files](campo01.jpg)
+> date:2022/08/20, tags: `#markdown`
 > 
-> Sure not. But does regexp make the code not readable?
+> build blog site by markdown files in minutes.
+> host on github, or other static web hosting  
 
 
 # Archives
 
 ### Sep 2022
 
-* 2022/09/28: [Build online resume by markdown](20220927-markdown-as-resume.md) { #markdown, #resume, #featured }
+* 2022/09/28: [Build online resume by markdown](20220927-markdown-as-resume.md) { #markdown }
    
 ### Aug 2022
                     
-* 2022/08/20: [Markdown as blog](20220820-markdown-as-blog.md) { #markdown, #blog, #featured }
+* 2022/08/20: [Markdown as blog](20220820-markdown-as-blog.md) { #markdown, #featured }
 * 2022/08/10: [Is RegExp readable?](20220810-is-regexp-readable.md) { #regexp }
 
 ### July 2022
